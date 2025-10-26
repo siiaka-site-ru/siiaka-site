@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас - Сияйка</title>
+    <meta name="description" content="О компании Сияйка - профессиональная клининговая компания в Санкт-Петербурге">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- AOS Animation -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #10b981;
+            --accent-color: #f59e0b;
+            --dark-color: #1f2937;
+            --light-gray: #f8fafc;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            padding-top: 76px;
+        }
+        
+        /* Header Styles */
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1d4ed8 100%);
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: white !important;
+        }
+        
+        .navbar-nav .nav-link {
+            color: rgba(255,255,255,0.9) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            color: white !important;
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1e40af 50%, var(--secondary-color) 100%);
+            color: white;
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .about-section {
+            padding: 80px 0;
+        }
+        
+        .about-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .team-member {
+            text-align: center;
+            padding: 2rem;
+            background: var(--light-gray);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .team-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 2.5rem;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer h5 {
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer a:hover {
+            color: var(--accent-color);
+        }
+        
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            text-decoration: none;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            color: white;
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-star me-2"></i>Сияйка
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon" style="color: white;"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Услуги</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about.html">О нас</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Контакты</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tel:+79116968708">
+                            <i class="fas fa-phone me-1"></i>+7 (911) 696-87-08
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 data-aos="fade-up">О нашей компании</h1>
+            <p data-aos="fade-up" data-aos-delay="100">Узнайте больше о Сияйке</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="about-card">
+                        <h2 class="mb-4">Наша история</h2>
+                        <p>Компания "Сияйка" работает на рынке клининговых услуг с 2022 года. За это время мы успели завоевать доверие более 1421 клиентов в Санкт-Петербурге.</p>
+                        <p>Мы начинали как небольшая команда энтузиастов, которые хотели изменить представление людей о клининговых услугах. Сегодня мы — профессиональная компания с опытными специалистами и современным оборудованием.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="about-card">
+                        <h2 class="mb-4">Наша миссия</h2>
+                        <p>Делать жизнь наших клиентов комфортнее и чище, предоставляя качественные услуги по уборке с использованием экологичных средств и профессионального оборудования.</p>
+                        <p>Мы верим, что чистота — это не просто отсутствие грязи, это атмосфера комфорта и уюта, которую мы создаем в каждом доме и офисе наших клиентов.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-5">
+                <div class="col-12 text-center mb-5" data-aos="fade-up">
+                    <h2 class="display-5 fw-bold">Наши ценности</h2>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="team-member">
+                        <div class="team-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h4>Качество</h4>
+                        <p>Профессиональное оборудование и проверенные технологии</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="team-member">
+                        <div class="team-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4>Забота</h4>
+                        <p>Индивидуальный подход к каждому клиенту</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="team-member">
+                        <div class="team-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h4>Экологичность</h4>
+                        <p>Безопасные для здоровья средства уборки</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="team-member">
+                        <div class="team-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h4>Честность</h4>
+                        <p>Прозрачное ценообразование и открытость</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 text-center" data-aos="fade-up">
+                    <div class="about-card">
+                        <h2 class="mb-4">Почему выбирают нас?</h2>
+                        <p class="lead">Мы не просто убираем — мы создаем пространство для комфортной жизни. Наша команда состоит из профессионалов с опытом работы от 3 лет, которые проходят регулярное обучение и используют только проверенные методы уборки.</p>
+                        <p>Средний рейтинг наших услуг — 4.73 из 5, что подтверждает высокое качество нашей работы. Мы выполнили 100% всех заказов и продолжаем расти благодаря вашему доверию!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5><i class="fas fa-star me-2"></i>Сияйка</h5>
+                    <p>Профессиональные услуги уборки с 2022 года. Делаем ваш дом идеально чистым!</p>
+                    <div class="social-links">
+                        <a href="https://t.me/SiiaKaaa"><i class="fab fa-telegram"></i></a>
+                        <a href="https://wa.me/79776043573"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Услуги</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="services.html">Уборка квартир</a></li>
+                        <li><a href="services.html">Уборка офисов</a></li>
+                        <li><a href="services.html">Генеральная уборка</a></li>
+                        <li><a href="services.html">Мойка окон</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Контакты</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-phone me-2"></i><a href="tel:+79116968708">+7 (911) 696-87-08</a></li>
+                        <li><i class="fas fa-envelope me-2"></i><a href="mailto:siiaka.com@gmail.com">siiaka.com@gmail.com</a></li>
+                        <li><i class="fas fa-map-marker-alt me-2"></i>г. Санкт-Петербург</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-12 mb-4">
+                    <h5>Режим работы</h5>
+                    <p>Пн - Пт: 08:00 - 22:00<br>Сб - Вс: 09:00 - 21:00</p>
+                    <p><small>Онлайн заявки круглосуточно</small></p>
+                </div>
+            </div>
+            <hr style="border-color: rgba(255,255,255,0.1);">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 Сияйка. Все права защищены.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <small>
+                        <a href="privacy.html">Политика конфиденциальности</a> |
+                        <a href="terms.html">Пользовательское соглашение</a>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/79776043573" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+</body>
+</html>

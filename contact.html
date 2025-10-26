@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - Сияйка</title>
+    <meta name="description" content="Контакты клининговой компании Сияйка в Санкт-Петербурге">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- AOS Animation -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #10b981;
+            --accent-color: #f59e0b;
+            --dark-color: #1f2937;
+            --light-gray: #f8fafc;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            padding-top: 76px;
+        }
+        
+        /* Header Styles */
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1d4ed8 100%);
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: white !important;
+        }
+        
+        .navbar-nav .nav-link {
+            color: rgba(255,255,255,0.9) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            color: white !important;
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1e40af 50%, var(--secondary-color) 100%);
+            color: white;
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-section {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+        
+        .contact-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+        
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 1.8rem;
+        }
+        
+        .contact-form {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .form-control, .form-select {
+            border-radius: 10px;
+            padding: 12px 20px;
+            border: 2px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.15);
+        }
+        
+        .btn-submit {
+            background: var(--accent-color);
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            color: white;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .btn-submit:hover {
+            background: #d97706;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
+        }
+        
+        .form-check-input {
+            width: 1.2rem;
+            height: 1.2rem;
+            margin-top: 0.3rem;
+            cursor: pointer;
+        }
+        
+        .form-check-input:checked {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .form-check-label {
+            cursor: pointer;
+            margin-left: 0.5rem;
+        }
+        
+        .form-check-label a {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+        
+        .form-check-label a:hover {
+            color: var(--secondary-color);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer h5 {
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer a:hover {
+            color: var(--accent-color);
+        }
+        
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            text-decoration: none;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            color: white;
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
+        }
+        
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: var(--light-gray);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-info-item:hover {
+            background: #e5e7eb;
+        }
+        
+        .contact-info-item i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-right: 1rem;
+            width: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-star me-2"></i>Сияйка
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon" style="color: white;"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Услуги</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">О нас</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contact.html">Контакты</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tel:+79116968708">
+                            <i class="fas fa-phone me-1"></i>+7 (911) 696-87-08
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 data-aos="fade-up">Свяжитесь с нами</h1>
+            <p data-aos="fade-up" data-aos-delay="100">Мы всегда готовы ответить на ваши вопросы</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="contact-card text-center">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h4>Телефон</h4>
+                        <p class="mb-2">Звоните нам в любое время</p>
+                        <a href="tel:+79116968708" style="color: var(--primary-color); font-size: 1.2rem; font-weight: 600; text-decoration: none;">
+                            +7 (911) 696-87-08
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="contact-card text-center">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h4>Email</h4>
+                        <p class="mb-2">Напишите нам на почту</p>
+                        <a href="mailto:siiaka.com@gmail.com" style="color: var(--primary-color); font-size: 1.2rem; font-weight: 600; text-decoration: none;">
+                            siiaka.com@gmail.com
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="contact-card text-center">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h4>Адрес</h4>
+                        <p class="mb-2">Работаем по всему городу</p>
+                        <p style="color: var(--primary-color); font-size: 1.2rem; font-weight: 600;">
+                            г. Санкт-Петербург
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6 mb-4" data-aos="fade-right">
+                    <div class="contact-form">
+                        <h3 class="mb-4">Оставьте заявку</h3>
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Ваше имя *</label>
+                                <input type="text" class="form-control" id="name" required placeholder="Введите ваше имя">
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Телефон *</label>
+                                <input type="tel" class="form-control" id="phone" required placeholder="+7 (___) ___-__-__">
+                            </div>
+                            <div class="mb-3">
+                                <label for="service" class="form-label">Услуга</label>
+                                <select class="form-select" id="service">
+                                    <option selected>Выберите услугу</option>
+                                    <option value="apartment">Уборка квартир</option>
+                                    <option value="office">Уборка офисов</option>
+                                    <option value="general">Генеральная уборка</option>
+                                    <option value="windows">Мойка окон</option>
+                                    <option value="windows">Другое</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Комментарий</label>
+                                <textarea class="form-control" id="message" rows="4" placeholder="Расскажите подробнее о вашем запросе"></textarea>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="agree" required>
+                                <label class="form-check-label" for="agree">
+                                    Я согласен с <a href="privacy.html" target="_blank">Политикой конфиденциальности</a> и <a href="terms.html" target="_blank">Пользовательским соглашением</a> *
+                                </label>
+                            </div>
+                            <button type="submit" class="btn-submit">
+                                <i class="fas fa-paper-plane me-2"></i>Отправить заявку
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 mb-4" data-aos="fade-left">
+                    <div class="contact-form">
+                        <h3 class="mb-4">Режим работы</h3>
+                        <div class="contact-info-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Понедельник - Пятница</strong>
+                                <p class="mb-0">08:00 - 22:00</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Суббота - Воскресенье</strong>
+                                <p class="mb-0">09:00 - 21:00</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <i class="fas fa-laptop"></i>
+                            <div>
+                                <strong>Онлайн заявки</strong>
+                                <p class="mb-0">Круглосуточно</p>
+                            </div>
+                        </div>
+
+                        <h3 class="mb-4 mt-5">Мы в социальных сетях</h3>
+                        <div class="d-flex gap-3">
+                            <a href="https://t.me/SiiaKaaa" class="social-links">
+                                <i class="fab fa-telegram fa-2x"></i>
+                            </a>
+                            <a href="https://wa.me/79776043573" class="social-links">
+                                <i class="fab fa-whatsapp fa-2x"></i>
+                            </a>
+                        </div>
+
+                        <div class="mt-5 p-4" style="background: var(--light-gray); border-radius: 15px;">
+                            <h4 class="mb-3">Нужна консультация?</h4>
+                            <p>Позвоните нам или напишите в WhatsApp / Telegram, и мы ответим на все ваши вопросы!</p>
+                            <a href="tel:+79116968708" class="btn-submit" style="width: auto; display: inline-block;">
+                                <i class="fas fa-phone me-2"></i>Позвонить сейчас
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5><i class="fas fa-star me-2"></i>Сияйка</h5>
+                    <p>Профессиональные услуги уборки с 2022 года. Делаем ваш дом идеально чистым!</p>
+                    <div class="social-links">
+                        <a href="https://t.me/SiiaKaaa"><i class="fab fa-telegram"></i></a>
+                        <a href="https://wa.me/79776043573"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Услуги</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="services.html">Уборка квартир</a></li>
+                        <li><a href="services.html">Уборка офисов</a></li>
+                        <li><a href="services.html">Генеральная уборка</a></li>
+                        <li><a href="services.html">Мойка окон</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Контакты</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-phone me-2"></i><a href="tel:+79116968708">+7 (911) 696-87-08</a></li>
+                        <li><i class="fas fa-envelope me-2"></i><a href="mailto:siiaka.com@gmail.com">siiaka.com@gmail.com</a></li>
+                        <li><i class="fas fa-map-marker-alt me-2"></i>г. Санкт-Петербург</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-12 mb-4">
+                    <h5>Режим работы</h5>
+                    <p>Пн - Пт: 08:00 - 22:00<br>Сб - Вс: 09:00 - 21:00</p>
+                    <p><small>Онлайн заявки круглосуточно</small></p>
+                </div>
+            </div>
+            <hr style="border-color: rgba(255,255,255,0.1);">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 Сияйка. Все права защищены.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <small>
+                        <a href="privacy.html">Политика конфиденциальности</a> | 
+                        <a href="terms.html">Пользовательское соглашение</a>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/79776043573" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // ==================== ИНСТРУКЦИЯ ПО НАСТРОЙКЕ ====================
+        // 1. Перейдите в Google Apps Script: https://script.google.com/
+        // 2. Создайте новый проект и вставьте ваш код
+        // 3. Нажмите "Развернуть" -> "Новое развертывание"
+        // 4. Выберите тип "Веб-приложение"
+        // 5. Установите "Кто имеет доступ" -> "Все"
+        // 6. Скопируйте URL развертывания
+        // 7. Замените 'YOUR_DEPLOYMENT_ID' ниже на ваш URL
+        // ================================================================
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const agreeCheckbox = document.getElementById('agree');
+            if (!agreeCheckbox.checked) {
+                alert('Пожалуйста, примите Политику конфиденциальности и Пользовательское соглашение');
+                return;
+            }
+            
+            // Собираем данные формы
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                service: document.getElementById('service').options[document.getElementById('service').selectedIndex].text,
+                message: document.getElementById('message').value || 'Нет комментария'
+            };
+            
+            // Блокируем кнопку отправки
+            const submitBtn = this.querySelector('.btn-submit');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Отправка...';
+            
+            // URL вашего Google Apps Script Web App
+            const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx1NVVtIuTE1Fh5_Ytg_9JbQfHM3DvmGmCE-EP_jCj-SAJN-ne-TbKvh0MVz2Gi1JQIIg/exec';
+            
+            // Отправка данных
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(() => {
+                // Успешная отправка
+                alert('Спасибо за заявку! Мы свяжемся с вами в ближайшее время.');
+                this.reset();
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+            })
+            .catch((error) => {
+                // Ошибка отправки
+                console.error('Ошибка:', error);
+                alert('Произошла ошибка при отправке заявки. Пожалуйста, позвоните нам по телефону +7 (911) 696-87-08');
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+            });
+        });
+
+        // Phone mask
+        const phoneInput = document.getElementById('phone');
+        phoneInput.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 0) {
+                if (value[0] !== '7') value = '7' + value;
+                let formatted = '+7';
+                if (value.length > 1) {
+                    formatted += ' (' + value.substring(1, 4);
+                }
+                if (value.length >= 5) {
+                    formatted += ') ' + value.substring(4, 7);
+                }
+                if (value.length >= 8) {
+                    formatted += '-' + value.substring(7, 9);
+                }
+                if (value.length >= 10) {
+                    formatted += '-' + value.substring(9, 11);
+                }
+                e.target.value = formatted;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Услуги - Сияйка</title>
+    <meta name="description" content="Услуги клининговой компании Сияйка - уборка квартир, офисов, генеральная уборка, мойка окон">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- AOS Animation -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #10b981;
+            --accent-color: #f59e0b;
+            --dark-color: #1f2937;
+            --light-gray: #f8fafc;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            padding-top: 76px;
+        }
+        
+        /* Header Styles */
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1d4ed8 100%);
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: white !important;
+        }
+        
+        .navbar-nav .nav-link {
+            color: rgba(255,255,255,0.9) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            color: white !important;
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1e40af 50%, var(--secondary-color) 100%);
+            color: white;
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .services-section {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+            border: none;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 2rem;
+        }
+        
+        .service-card h3 {
+            color: var(--dark-color);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .price {
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 1rem 0;
+        }
+        
+        .service-features {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+        
+        .service-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .service-features li:before {
+            content: "✓";
+            color: var(--secondary-color);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer h5 {
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer a:hover {
+            color: var(--accent-color);
+        }
+        
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            text-decoration: none;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            color: white;
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
+        }
+        
+        .btn-order {
+            background: var(--accent-color);
+            border: none;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        
+        .btn-order:hover {
+            background: #d97706;
+            transform: translateY(-2px);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-star me-2"></i>Сияйка
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon" style="color: white;"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="services.html">Услуги</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">О нас</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Контакты</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tel:+79116968708">
+                            <i class="fas fa-phone me-1"></i>+7 (911) 696-87-08
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 data-aos="fade-up">Наши услуги</h1>
+            <p data-aos="fade-up" data-aos-delay="100">Профессиональная уборка для любых задач</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3>Уборка квартир</h3>
+                        <p>Профессиональная уборка жилых помещений с использованием экологичных средств</p>
+                        <ul class="service-features">
+                            <li>Влажная уборка всех помещений</li>
+                            <li>Уборка кухни и санузла</li>
+                            <li>Протирка пыли на всех поверхностях</li>
+                            <li>Мытье полов</li>
+                            <li>Вынос мусора</li>
+                        </ul>
+                        <div class="price">Индивидуальный расчет</div>
+                        <small class="text-muted">Стоимость зависит от площади и сложности</small>
+                        <a href="tel:+79116968708" class="btn-order">
+                            <i class="fas fa-phone me-2"></i>Заказать
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3>Уборка офисов</h3>
+                        <p>Комплексная уборка офисных помещений и рабочих мест</p>
+                        <ul class="service-features">
+                            <li>Уборка рабочих мест</li>
+                            <li>Мытье полов и ковровых покрытий</li>
+                            <li>Уборка переговорных комнат</li>
+                            <li>Протирка офисной техники</li>
+                            <li>Уборка кухонной зоны</li>
+                        </ul>
+                        <div class="price">Индивидуальный расчет</div>
+                        <small class="text-muted">Возможна регулярная уборка по графику</small>
+                        <a href="tel:+79116968708" class="btn-order">
+                            <i class="fas fa-phone me-2"></i>Заказать
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-magic"></i>
+                        </div>
+                        <h3>Генеральная уборка</h3>
+                        <p>Глубокая уборка всех помещений включая труднодоступные места</p>
+                        <ul class="service-features">
+                            <li>Мытье окон и подоконников</li>
+                            <li>Чистка кухонной техники</li>
+                            <li>Уборка шкафов изнутри</li>
+                            <li>Мытье стен и потолков</li>
+                            <li>Чистка мягкой мебели</li>
+                            <li>Уборка балкона/лоджии</li>
+                        </ul>
+                        <div class="price">Индивидуальный расчет</div>
+                        <small class="text-muted">Рекомендуется 1-2 раза в год</small>
+                        <a href="tel:+79116968708" class="btn-order">
+                            <i class="fas fa-phone me-2"></i>Заказать
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-window-maximize"></i>
+                        </div>
+                        <h3>Мойка окон</h3>
+                        <p>Профессиональное мытье окон изнутри и снаружи</p>
+                        <ul class="service-features">
+                            <li>Мытье стекол с двух сторон</li>
+                            <li>Очистка рам и подоконников</li>
+                            <li>Удаление въевшихся загрязнений</li>
+                            <li>Полировка стекол</li>
+                            <li>Использование безопасных средств</li>
+                        </ul>
+                        <div class="price">Индивидуальный расчет</div>
+                        <small class="text-muted">Цена зависит от количества окон</small>
+                        <a href="tel:+79116968708" class="btn-order">
+                            <i class="fas fa-phone me-2"></i>Заказать
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-12 text-center" data-aos="fade-up">
+                    <div class="service-card">
+                        <h3 class="mb-4">Не нашли нужную услугу?</h3>
+                        <p class="lead">Мы предоставляем индивидуальные решения для любых задач. Свяжитесь с нами, и мы подберем оптимальный вариант уборки специально для вас!</p>
+                        <a href="contact.html" class="btn-order">
+                            <i class="fas fa-envelope me-2"></i>Связаться с нами
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5><i class="fas fa-star me-2"></i>Сияйка</h5>
+                    <p>Профессиональные услуги уборки с 2022 года. Делаем ваш дом идеально чистым!</p>
+                    <div class="social-links">
+                        <a href="https://t.me/SiiaKaaa"><i class="fab fa-telegram"></i></a>
+                        <a href="https://wa.me/79776043573"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Услуги</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="services.html">Уборка квартир</a></li>
+                        <li><a href="services.html">Уборка офисов</a></li>
+                        <li><a href="services.html">Генеральная уборка</a></li>
+                        <li><a href="services.html">Мойка окон</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Контакты</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-phone me-2"></i><a href="tel:+79116968708">+7 (911) 696-87-08</a></li>
+                        <li><i class="fas fa-envelope me-2"></i><a href="mailto:siiaka.com@gmail.com">siiaka.com@gmail.com</a></li>
+                        <li><i class="fas fa-map-marker-alt me-2"></i>г. Санкт-Петербург</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-12 mb-4">
+                    <h5>Режим работы</h5>
+                    <p>Пн - Пт: 08:00 - 22:00<br>Сб - Вс: 09:00 - 21:00</p>
+                    <p><small>Онлайн заявки круглосуточно</small></p>
+                </div>
+            </div>
+            <hr style="border-color: rgba(255,255,255,0.1);">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 Сияйка. Все права защищены.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <small>
+                        <a href="privacy.html">Политика конфиденциальности</a> |
+                        <a href="terms.html">Пользовательское соглашение</a>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/79776043573" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+</body>
+</html>
