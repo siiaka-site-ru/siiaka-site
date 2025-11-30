@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -169,8 +168,8 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            /* Отступ сверху для мобильных, чтобы меню не перекрывало контент */
-            padding-top: 60px; 
+            /* Отступ сверху, чтобы меню не перекрывало контент, но не слишком большой */
+            padding-top: 0; 
         }
 
         .navbar {
@@ -197,7 +196,6 @@
             transform: translateY(-1px);
         }
 
-        /* Настройка кнопки меню (гамбургер) */
         .navbar-toggler {
             border: none;
             outline: none;
@@ -209,11 +207,12 @@
         .hero {
             background: linear-gradient(135deg, var(--primary-color) 0%, #1e40af 50%, var(--secondary-color) 100%);
             color: white;
-            padding: 100px 0;
+            /* Стандартные отступы для ПК */
+            padding: 120px 0 100px; 
             position: relative;
             overflow: hidden;
-            margin-top: -60px; /* Компенсация padding-top body для первого экрана */
-            padding-top: 120px; /* Чтобы текст не уехал под меню */
+            /* Важно: чтобы меню перекрывало фон, но контент был ниже */
+            margin-top: 0; 
         }
 
         .hero::before {
@@ -486,11 +485,10 @@
         }
 
         /* ==============================================
-           МОБИЛЬНАЯ АДАПТАЦИЯ (Media Queries)
+           МОБИЛЬНАЯ АДАПТАЦИЯ (ИСПРАВЛЕНИЕ ЗАГОЛОВКА)
            ============================================== */
         
         @media (max-width: 991px) {
-            /* Темный фон для выпадающего меню на мобильных */
             .navbar-collapse {
                 background: #1e40af; 
                 margin-top: 10px;
@@ -500,50 +498,52 @@
         }
 
         @media (max-width: 768px) {
-            /* Уменьшаем гигантские отступы между секциями */
-            .services, .features, .stats, .cta, .footer, .hero {
-                padding-top: 50px;
+            /* Главное исправление: сильно сдвигаем контент вниз */
+            .hero {
+                padding-top: 160px !important; /* Отступ сверху, чтобы вылезти из-под меню */
                 padding-bottom: 50px;
             }
 
-            /* Уменьшаем размер главного заголовка */
+            /* Уменьшаем размер заголовка, чтобы он влезал */
             .hero h1 {
-                font-size: 2.2rem; 
+                font-size: 2rem; 
                 line-height: 1.2;
+                margin-bottom: 1rem;
             }
 
-            /* Скрываем большую плавающую метлу, чтобы не мешала */
+            /* Добавляем отступы по бокам */
+            .hero-content {
+                text-align: center;
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            /* Скрываем метлу */
             .floating {
                 display: none; 
             }
 
-            /* Текст по центру на первом экране */
-            .hero-content {
-                text-align: center;
-            }
-
-            /* Кнопка на первом экране на всю ширину */
+            /* Кнопка во всю ширину */
             .btn-hero {
                 width: 100%;
                 display: block;
                 padding: 15px 0;
             }
 
-            /* Уменьшаем внутренние отступы в карточках */
-            .service-card {
-                padding: 1.5rem;
+            /* Уменьшаем остальные отступы */
+            .services, .features, .stats, .cta, .footer {
+                padding-top: 50px;
+                padding-bottom: 50px;
             }
             
-            .content-box {
+            .service-card, .content-box {
                 padding: 1.5rem;
             }
 
-            /* Размер цифр статистики */
             .stat-number {
                 font-size: 2.5rem;
             }
             
-            /* Заголовки секций */
             h2.display-4, h2.display-5 {
                 font-size: 2rem;
             }
@@ -773,7 +773,7 @@
                     <a href="tel:+79116968708" class="btn btn-light btn-lg me-3 mb-3">
                         <i class="fas fa-phone me-2" aria-hidden="true"></i>Позвонить
                     </a>
-                    <a href="contact.html" class="btn btn-outline-light btn-lg mb-3">
+                    <a href="mailto:siiaka.com@gmail.com" class="btn btn-outline-light btn-lg mb-3">
                         <i class="fas fa-envelope me-2" aria-hidden="true"></i>Написать
                     </a>
                 </div>
@@ -788,7 +788,7 @@
                 <div class="col-12" data-aos="fade-up">
                     <h2 class="display-5 fw-bold mb-4 text-center" style="color: var(--dark-color);">Уборка квартир и офисов в Санкт-Петербурге: зачем нужен профессиональный клининг</h2>
 
-                    <p class="lead">Профессиональная уборка квартир и офисов в СПб становится все более востребованной услугой. Жители Санкт-Петербурга ценят свое время и предпочитают доверять уборку профессионалам, чтобы всегда возвращаться в чистое и ухоженное пространство.</p>
+                    <p class="lead">Проф��ссиональная уборка квартир и офисов в СПб становится все более востребованной услугой. Жители Санкт-Петербурга ценят свое время и предпочитают доверять уборку профессионалам, чтобы всегда возвращаться в чистое и ухоженное пространство.</p>
 
                     <p>Клининговая компания «Сияйка» предлагает полный комплекс услуг по уборке помещений в Санкт-Петербурге: от регулярной уборки однокомнатной квартиры до генеральной уборки больших офисов и послестроительной уборки после ремонта. Мы работаем по прозрачным тарифам и тщательно планируем каждую уборку.</p>
 
@@ -1128,4 +1128,3 @@
     </script>
 </body>
 </html>
-```
