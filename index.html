@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -168,17 +169,19 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
+            /* Отступ сверху для мобильных, чтобы меню не перекрывало контент */
+            padding-top: 60px; 
         }
 
         .navbar {
             background: linear-gradient(135deg, var(--primary-color) 0%, #1d4ed8 100%);
-            padding: 1rem 0;
+            padding: 0.8rem 0;
             box-shadow: 0 2px 20px rgba(0,0,0,0.1);
         }
 
         .navbar-brand {
             font-weight: 700;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             color: white !important;
         }
 
@@ -194,12 +197,23 @@
             transform: translateY(-1px);
         }
 
+        /* Настройка кнопки меню (гамбургер) */
+        .navbar-toggler {
+            border: none;
+            outline: none;
+        }
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
         .hero {
             background: linear-gradient(135deg, var(--primary-color) 0%, #1e40af 50%, var(--secondary-color) 100%);
             color: white;
             padding: 100px 0;
             position: relative;
             overflow: hidden;
+            margin-top: -60px; /* Компенсация padding-top body для первого экрана */
+            padding-top: 120px; /* Чтобы текст не уехал под меню */
         }
 
         .hero::before {
@@ -405,18 +419,6 @@
             transform: translateY(-3px);
         }
 
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            .hero p {
-                font-size: 1.1rem;
-            }
-            .service-card {
-                margin-bottom: 2rem;
-            }
-        }
-
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
@@ -482,6 +484,70 @@
             color: var(--secondary-color);
             font-weight: bold;
         }
+
+        /* ==============================================
+           МОБИЛЬНАЯ АДАПТАЦИЯ (Media Queries)
+           ============================================== */
+        
+        @media (max-width: 991px) {
+            /* Темный фон для выпадающего меню на мобильных */
+            .navbar-collapse {
+                background: #1e40af; 
+                margin-top: 10px;
+                border-radius: 10px;
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            /* Уменьшаем гигантские отступы между секциями */
+            .services, .features, .stats, .cta, .footer, .hero {
+                padding-top: 50px;
+                padding-bottom: 50px;
+            }
+
+            /* Уменьшаем размер главного заголовка */
+            .hero h1 {
+                font-size: 2.2rem; 
+                line-height: 1.2;
+            }
+
+            /* Скрываем большую плавающую метлу, чтобы не мешала */
+            .floating {
+                display: none; 
+            }
+
+            /* Текст по центру на первом экране */
+            .hero-content {
+                text-align: center;
+            }
+
+            /* Кнопка на первом экране на всю ширину */
+            .btn-hero {
+                width: 100%;
+                display: block;
+                padding: 15px 0;
+            }
+
+            /* Уменьшаем внутренние отступы в карточках */
+            .service-card {
+                padding: 1.5rem;
+            }
+            
+            .content-box {
+                padding: 1.5rem;
+            }
+
+            /* Размер цифр статистики */
+            .stat-number {
+                font-size: 2.5rem;
+            }
+            
+            /* Заголовки секций */
+            h2.display-4, h2.display-5 {
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -492,7 +558,7 @@
                 <i class="fas fa-star me-2" aria-hidden="true"></i>Сияйка
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Открыть меню">
-                <span class="navbar-toggler-icon" style="color: white;"></span>
+                <span class="navbar-toggler-icon" style="filter: invert(1) brightness(100%);"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
@@ -528,7 +594,7 @@
                     <a href="tel:+79116968708" class="btn-hero">
                         <i class="fas fa-phone me-2" aria-hidden="true"></i>Заказать уборку
                     </a>
-                    <p class="mt-3 mb-0" style="font-size:0.95rem; max-width:480px;">
+                    <p class="mt-3 mb-0" style="font-size:0.95rem; max-width:480px; margin: 0 auto;">
                         Если вы ищете уборку дешево в СПб без потери качества, оставьте заявку — подберём выгодный вариант под ваш бюджет.
                     </p>
                 </div>
@@ -1062,3 +1128,4 @@
     </script>
 </body>
 </html>
+```
